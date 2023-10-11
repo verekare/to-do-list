@@ -1,26 +1,57 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<div class="toDoList">
+  <my-dialog :show="false">
+
+  </my-dialog>
+  <task-form 
+      @add="addTask" 
+    />
+  <task-list 
+    :tasks="tasks" 
+    @remove="removeTask"
+  />
+</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TaskForm from '@/components/TaskForm'
+import TaskList from '@/components/TaskList'
+import MyDialog from './components/UI/MyDialog.vue'
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    TaskForm, TaskList,
+    MyDialog
+  },
+  data() {
+    return {
+      tasks: [
+            {id: 0, title: 'Create 5 comprehension and 5 coding tasks.'},
+            {id: 1, title: 'Finish this Vue project.'}
+      ],
+    }
+  },
+  methods: {
+      addTask(task) {
+        this.tasks.push(task)
+      },
+      removeTask(task) {
+        this.tasks = this.tasks.filter(t => t.id !== task.id)
+      }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  box-sizing: border-box;
+  font-family: Avenir,
+}
+*::selection {
+    background-color: rgb(255, 164, 53);
+}
+body {
+  padding-top: 70px;
+  background-color: tomato;
 }
 </style>
