@@ -6,8 +6,8 @@
             class="input" placeholder="a task to do"
         />
         <my-button 
-            class="btn"
-            @click="addTask">Add task
+        style="background: rgb(245, 245, 245);"
+        @click="addTask">Add task
         </my-button>
     </form>
 </template>

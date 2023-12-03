@@ -26,14 +26,14 @@ export default {
   data() {
     return {
       tasks: [
-            {id: 0, title: 'Create 5 comprehension and 5 coding tasks.'},
+            {id: 0, title: 'Brush my teeth.'},
             {id: 1, title: 'Finish this Vue project.'}
       ],
     }
   },
   methods: {
       addTask(task) {
-        this.tasks.push(task)
+        this.tasks.unshift(task)
       },
       removeTask(task) {
         this.tasks = this.tasks.filter(t => t.id !== task.id)
