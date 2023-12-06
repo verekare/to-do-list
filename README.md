@@ -1,19 +1,5 @@
-# to-do
+# todo
 
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Project deploy
+Click [here](https://deploy--taupe-torte-d4701b.netlify.app/) to add your tasks to do.
+Delete them after finishing. For now you can do just that.
