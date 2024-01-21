@@ -25,12 +25,14 @@ export default {
         }
     },
     methods: {
-        addTask() {    
-            this.task.id = Date.now();
-            this.$emit('add', this.task);
-            this.task = {
-                title: ''
-            };
+        addTask() {
+            if (this.task.title) {
+                this.task.id = Date.now();
+                this.$emit('add', this.task);
+                this.task = {
+                    title: ''
+                };
+            }
         }
     }
 }
