@@ -1,6 +1,6 @@
 <template>
 <div class="task">
-    <textarea :disabled="disabledEdit" max-length="50" cols="40">{{ task.title }}</textarea>
+    <textarea :disabled="disabledEdit" max-length="50" cols="40" @input="autoResize()">{{ task.title }}</textarea>
     <div class="task__utils">
         <my-button 
         style="background: none;"
@@ -27,6 +27,19 @@ export default {
             type: Object,
             required: true
         }
+    },
+    methods: {
+        autoResize() {
+            const textarea = document.querySelector('textarea');
+            textarea.addEventListener("keyup", (e) => {
+                setTimeout( () => {
+                    textarea.style.height = "auto";
+                    let scHeight = e.target.scrollHeight;
+                    textarea.style.height = `${scHeight}px`;
+                    console.log('changed height')
+                }, 2000)
+            });
+        }
     }
 }
 </script>
@@ -44,6 +57,8 @@ textarea {
     font-family: Avenir, sans-serif;
     font-size: 1.1em;
     color: whitesmoke;
+    outline: none;
+    resize: none;
 }
 .task {
     padding: 10px;
